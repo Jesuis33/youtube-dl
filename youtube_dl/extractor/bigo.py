@@ -12,6 +12,7 @@ class BigoIE(InfoExtractor):
         'url': 'https://www.bigo.tv/ja/221338632',
         'info_dict': {
             'id': '6576287577575737440',
+            'ext': 'mp4',
             'title': '土よ〜💁‍♂️ 休憩室/REST room',
             'thumbnail': r're:https?://.+',
             'uploader': '✨Shin💫',
@@ -31,7 +32,7 @@ class BigoIE(InfoExtractor):
         user_id = self._match_id(url)
 
         info_raw = self._download_json(
-            'https://bigo.tv/studio/getInternalStudioInfo',
+            'https://ta.bigo.tv/official_website/studio/getInternalStudioInfo',
             user_id, data=urlencode_postdata({'siteId': user_id}))
 
         if not isinstance(info_raw, dict):
